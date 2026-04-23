@@ -125,14 +125,17 @@ tw-story[tags~="titlebackground"] {
 (link-replace: &quot;...&quot;)[(text-style:&quot;rumble&quot;)[[Of course. I will kill the worm.]]]
 </tw-passagedata><tw-passagedata pid="7" name="Step on worm" tags="" position="850,775" size="100,100">(set:$stepped = true)
 
-[You raise your foot, ready to crush the worm to death when...]
-*close up on worms face, eyes wide* PUT A link reveal and PICTURE IN FOR THIS 
-[Do you still want to step on worm?] 
+As you were plotting how to find this worm, you thought about what it could have possibly done to this figure. Was it dangerous? If so…to who? It’s just a worm…what harm could it pose?
 
-[Yes]
-[No]
+In the middle of your deliberation, you notice something wriggling below you. 
 
-[[Of course. I will kill the worm.]] 
+$combinedStyles[(css:&quot;font-size: 500%&quot;) + (text-style:&quot;fade-in-out&quot;)[A worm. ]]
+
+Was this the one? Of course it couldn’t be. There was a 1/1,000 chance… (if:$drowned or $fish or $bird or $poison)[well...less now].. that this was the one you were looking for. 
+
+[[I should let it go]]
+[[KILL IT]]
+
 </tw-passagedata><tw-passagedata pid="8" name="Data center heats and shrivels worm" tags="" position="50,150" size="100,100">The worm is relocated next to a data center. The data center produces a 6-mile heat island, warming the the area 15 degree F. The soil, which was once moist and comfortable for the worm, is now overbearingly hot. The worm shrivels and dies. </tw-passagedata><tw-passagedata pid="9" name="Data center causes algae that poisons aquatic worm" tags="" position="50,250" size="100,100">The worm moves to a riverbed located next to a data center. The data center produces a 6-mile heat island, warming the the area 15 degree F. The intensity of global warming increases the rate of Harmful Algal Blooms (HABs). The HAB grows and grows and grows. It lets out a toxin that poisons the surrounding wildlife, including the aquatic worm. </tw-passagedata><tw-passagedata pid="10" name="Kill?" tags="" position="750,325" size="100,100">Yes. $combinedStyles[(css:&quot;font-size: 500%&quot;)[KILL]]
 
 (set: $resist to it + 1)
@@ -187,7 +190,60 @@ You filled the hole until it overflowed and you saw what it flushed out.
 (set: $resist to it + 1)
 (text-style:&quot;shudder&quot;)[[Of course. I will kill the worm.]]</tw-passagedata><tw-passagedata pid="25" name="Data center" tags="" position="675,500" size="100,100">(set:$data = true)
 
-[[Of course. I will kill the worm.]] </tw-passagedata></tw-storydata>
+[[Of course. I will kill the worm.]] </tw-passagedata><tw-passagedata pid="26" name="I should let it go" tags="" position="850,900" size="100,100">(set: $resist to it + 1)
+Realistically letting it go wouldn’t hurt. There was a low chance that this was the worm you were looking for. 
+
+(after:2s)[(text-color:&quot;red&quot;)[But what if it was?]]
+
+(after:4s)[
+[Realistically….]&lt;newPassage|
+(enchant: ?newPassage&#39;s chars, via (t8n-delay:pos * 30) + (t8n:&#39;instant&#39;))]
+(after:5s)[[It also wouldn’t hurt to just kill it]&lt;newPassage2|
+(enchant: ?newPassage2&#39;s chars, via (t8n-delay:pos * 50) + (t8n:&#39;instant&#39;))]
+(after:7s)[[Yeah…just to make sure. ]&lt;newPassage3|
+(enchant: ?newPassage3&#39;s chars, via (t8n-delay:pos * 50) + (t8n:&#39;instant&#39;))]
+(after:9s)[(link:&quot;But it would hurt the worm!&quot;)[Sure it will hurt the worm but it’s for a greater cause.]&lt;newPassage4|
+(enchant: ?newPassage4&#39;s chars, via (t8n-delay:pos * 50) + (t8n:&#39;instant&#39;))]
+
+
+(after:10s)[(link-replace: &quot;LEAVE IT ALONE&quot;)[(set: $resist to it + 1) (text-style:&quot;rumble&quot;)[[Approach the worm-&gt;KILL IT]]]]
+(after:11s)[[[KILL IT-&gt;KILL IT]]]</tw-passagedata><tw-passagedata pid="27" name="KILL IT" tags="" position="725,900" size="100,100">You slowly approach the worm so as to not startle it. (link:&quot;On second thought…maybe you shouldn’t..&quot;)[$combinedStyles[Not like it could escape fast enough. ]]
+
+You always heard that they didn&#39;t feel pain…and even if they did it was just a worm. You raise your foot, ready to crush the worm to death when…
+
+[sad worm :( ]
+
+Do you still want to kill the worm?
+
+[[YES]]
+[[NO]]
+</tw-passagedata><tw-passagedata pid="28" name="YES" tags="" position="787.5,1150" size="100,100">SQUISH
+
+sad
+
+wahhh
+
+whyyy
+
+:) 
+
+[[It&#39;s Over]] </tw-passagedata><tw-passagedata pid="29" name="NO" tags="" position="912.5,1150" size="100,100">(set: $resist to it + 1)
+You retract your foot....
+
+(after:2s)[(text-style:&quot;blur&quot;)+(text-color:&quot;red&quot;)[[only to slam it down harder]&lt;typewriter1|]
+
+(enchant: ?typewriter1&#39;s chars, via (t8n-delay:pos * 50) + (t8n:&#39;instant&#39;))]
+
+sad worm
+
+
+[[It&#39;s Over]]</tw-passagedata><tw-passagedata pid="30" name="It&#39;s Over" tags="" position="912.5,1275" size="100,100">The Figure returns, head tilted at the mess at the bottom of your shoe.
+
+That&#39;s the wrong worm. 
+
+(link-replace: &quot;I can&#39;t keep doing this...&quot;)[(set: $resist to it + 1) (text-style:&quot;rumble&quot;)[[Ok let me try that again -&gt;Of course. I will kill the worm.]]]
+
+</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
